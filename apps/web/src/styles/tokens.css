@@ -1,0 +1,123 @@
+/*
+ * The strip bay. A slate rail holds the channels; threads are paper strips on
+ * a cool grey bay. One neutral ramp is the only grey there is, the holder
+ * colours say a thread's state, and one vermilion is kept for change alone.
+ */
+:root {
+  color-scheme: light dark;
+
+  --font: "Atkinson Hyperlegible Next Variable", ui-sans-serif, system-ui, sans-serif;
+  --mono: "Atkinson Hyperlegible Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* A fixed scale: this is a tool, and its type doesn't breathe with the window. */
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-md: 0.875rem;
+  --text-lg: 1rem;
+  --text-xl: 1.1875rem;
+  --text-2xl: 1.4375rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  --radius: 3px;
+  --rail-width: 16.5rem;
+  --measure: 68ch;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --quick: 150ms;
+  --move: 200ms;
+
+  /* The ramp, light. */
+  --bay: oklch(0.948 0.007 252);
+  --paper: oklch(0.994 0.002 252);
+  --paper-2: oklch(0.972 0.005 252);
+  --rule: oklch(0.885 0.009 252);
+  --rule-2: oklch(0.79 0.012 252);
+  --ink: oklch(0.225 0.022 258);
+  --ink-2: oklch(0.4 0.022 258);
+  --ink-3: oklch(0.52 0.018 258);
+
+  /* The rail is slate in both lights: it is the frame the strips sit in. */
+  --rail: oklch(0.275 0.032 258);
+  --rail-2: oklch(0.335 0.038 258);
+  --rail-3: oklch(0.4 0.045 258);
+  --rail-ink: oklch(0.955 0.008 252);
+  --rail-ink-2: oklch(0.78 0.02 252);
+  --rail-rule: oklch(0.36 0.03 258);
+
+  /* Holders: what state a strip is in. Each is a ground and the ink that reads on it. */
+  --ready: oklch(0.87 0.085 240);
+  --ready-ink: oklch(0.29 0.09 250);
+  --claimed: oklch(0.885 0.115 88);
+  --claimed-ink: oklch(0.33 0.07 70);
+  --blocked: oklch(0.865 0.085 12);
+  --blocked-ink: oklch(0.34 0.11 18);
+  --done: oklch(0.875 0.095 156);
+  --done-ink: oklch(0.31 0.075 158);
+  --waiting: oklch(0.915 0.035 92);
+  --waiting-ink: oklch(0.36 0.04 85);
+  --ended: oklch(0.9 0.006 252);
+  --ended-ink: oklch(0.42 0.015 258);
+
+  /* The marker: something changed here and you haven't looked. Nothing else is this colour. */
+  --change: oklch(0.61 0.215 32);
+  --change-wash: oklch(0.955 0.03 40);
+
+  --link: oklch(0.47 0.15 255);
+  --focus: oklch(0.56 0.19 258);
+  /* Refusals and deleting, in the rose of a blocked strip: the change colour is not for them. */
+  --danger: oklch(0.47 0.16 12);
+  --danger-wash: oklch(0.955 0.025 12);
+  --select: oklch(0.86 0.07 245);
+  --overlay-shadow:
+    0 1px 2px oklch(0.2 0.02 258 / 0.12), 0 10px 28px -6px oklch(0.2 0.02 258 / 0.28);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bay: oklch(0.205 0.016 258);
+    --paper: oklch(0.252 0.019 258);
+    --paper-2: oklch(0.285 0.021 258);
+    --rule: oklch(0.335 0.022 258);
+    --rule-2: oklch(0.43 0.026 258);
+    --ink: oklch(0.945 0.007 252);
+    --ink-2: oklch(0.8 0.014 252);
+    --ink-3: oklch(0.69 0.017 252);
+
+    --rail: oklch(0.165 0.018 258);
+    --rail-2: oklch(0.235 0.024 258);
+    --rail-3: oklch(0.3 0.03 258);
+    --rail-ink: oklch(0.945 0.007 252);
+    --rail-ink-2: oklch(0.72 0.018 252);
+    --rail-rule: oklch(0.27 0.022 258);
+
+    --ready: oklch(0.4 0.095 245);
+    --ready-ink: oklch(0.94 0.035 240);
+    --claimed: oklch(0.44 0.085 80);
+    --claimed-ink: oklch(0.95 0.06 90);
+    --blocked: oklch(0.41 0.105 15);
+    --blocked-ink: oklch(0.94 0.035 12);
+    --done: oklch(0.4 0.08 157);
+    --done-ink: oklch(0.94 0.05 156);
+    --waiting: oklch(0.37 0.03 88);
+    --waiting-ink: oklch(0.92 0.03 92);
+    --ended: oklch(0.33 0.015 258);
+    --ended-ink: oklch(0.8 0.012 252);
+
+    --change: oklch(0.71 0.185 36);
+    --change-wash: oklch(0.32 0.06 32);
+
+    --link: oklch(0.78 0.11 250);
+    --focus: oklch(0.74 0.15 255);
+    --danger: oklch(0.78 0.11 10);
+    --danger-wash: oklch(0.32 0.06 12);
+    --select: oklch(0.42 0.09 250);
+    --overlay-shadow: 0 1px 2px oklch(0 0 0 / 0.4), 0 12px 32px -6px oklch(0 0 0 / 0.6);
+  }
+}

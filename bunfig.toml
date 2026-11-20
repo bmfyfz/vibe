@@ -1,0 +1,9 @@
+[install]
+# Each package sees only the dependencies its package.json declares, so the
+# bounded-context boundaries are enforced by the installer, not by convention.
+linker = "isolated"
+
+[fmt]
+printWidth = 100
+sortImports = true
+sortPackageJson = true

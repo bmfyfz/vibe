@@ -1,0 +1,22 @@
+// A Vibe in a container your editor opens, or in a Codespace: Bun, the
+// dependencies and the built web app, ready for `bun start`.
+{
+  "name": "Vibe",
+  "image": "oven/bun:1.4",
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    // Cloudflare's `cf` CLI runs on Node: `bun check`, `bun dev` and a deploy need it. `bun start` doesn't.
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" }
+  },
+  "postCreateCommand": "bun install --frozen-lockfile && bun web:build",
+  // The address `bun start` serves on, opened in a browser when it is up.
+  "forwardPorts": [7473],
+  "portsAttributes": {
+    "7473": { "label": "Vibe", "onAutoForward": "openBrowser" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["oven.bun-vscode", "biomejs.biome"]
+    }
+  }
+}

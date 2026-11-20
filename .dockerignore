@@ -1,0 +1,14 @@
+.git
+.github
+.claude
+.vibe
+.cloudflare
+.wrangler
+node_modules
+**/node_modules
+**/dist
+**/.dev.vars
+**/.env*
+docs
+*.md
+!README.md

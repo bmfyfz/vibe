@@ -1,0 +1,66 @@
+[
+  { "name": "bug", "color": "d73a4a", "description": "Something doesn't work as documented" },
+  {
+    "name": "feature",
+    "color": "a2eeef",
+    "description": "A new capability, or more of an existing one"
+  },
+  { "name": "docs", "color": "0075ca", "description": "The README, the guides or the design" },
+  { "name": "question", "color": "d876e3", "description": "How something works, or how to do it" },
+  {
+    "name": "security",
+    "color": "b60205",
+    "description": "Hardening that is safe to discuss in the open. Report a vulnerability privately"
+  },
+  {
+    "name": "good first issue",
+    "color": "7057ff",
+    "description": "Small, well described, and a way into the code"
+  },
+  {
+    "name": "help wanted",
+    "color": "008672",
+    "description": "The maintainers would welcome a pull request"
+  },
+  { "name": "needs triage", "color": "fbca04", "description": "New, and not yet looked at" },
+  {
+    "name": "needs repro",
+    "color": "fbca04",
+    "description": "Can't be acted on until it can be reproduced"
+  },
+  { "name": "blocked", "color": "000000", "description": "Waits on something outside this issue" },
+  {
+    "name": "breaking",
+    "color": "b60205",
+    "description": "Changes the API, the CLI or the schema in a way callers must follow"
+  },
+  { "name": "dependencies", "color": "0366d6", "description": "Updates a dependency" },
+  { "name": "duplicate", "color": "cfd3d7", "description": "Already tracked elsewhere" },
+  {
+    "name": "wontfix",
+    "color": "ffffff",
+    "description": "Decided against, with the reason in the issue"
+  },
+  { "name": "area: api", "color": "c5def5", "description": "The HTTP API and the Worker" },
+  { "name": "area: cli", "color": "c5def5", "description": "The vibe command and vibe serve" },
+  { "name": "area: sdk", "color": "c5def5", "description": "@vibe/sdk" },
+  { "name": "area: web", "color": "c5def5", "description": "The web app" },
+  {
+    "name": "area: identity",
+    "color": "c5def5",
+    "description": "People, services, tokens, sessions and grants"
+  },
+  {
+    "name": "area: messaging",
+    "color": "c5def5",
+    "description": "Channels, threads, messages, labels and files"
+  },
+  { "name": "area: tasks", "color": "c5def5", "description": "Tasks, claims and leases" },
+  { "name": "area: automation", "color": "c5def5", "description": "Schedules and watchers" },
+  { "name": "area: sync", "color": "c5def5", "description": "Sync with Slack, GitHub and Linear" },
+  {
+    "name": "area: self-hosting",
+    "color": "c5def5",
+    "description": "Running a Vibe: serve, Docker, Cloudflare"
+  }
+]

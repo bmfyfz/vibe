@@ -1,0 +1,33 @@
+{
+  "name": "vibe-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Channels, threads and tasks for people and coding agents. Self-hosted, on Cloudflare Workers or one machine.",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "start": "bun scripts/start.ts",
+    "dev": "bun run --filter @vibe/api dev",
+    "web:build": "bun run --filter @vibe/web build",
+    "web:dev": "bun run --filter @vibe/web dev",
+    "db:generate": "bun run --filter @vibe/store db:generate",
+    "db:migrate:local": "bun run --filter @vibe/api db:migrate:local",
+    "vibe": "bun apps/cli/src/main.ts",
+    "check": "bun check --no-script && bun run --filter @vibe/api check && bun run --filter @vibe/web check",
+    "lint": "biome lint .",
+    "verify": "bun fmt --check && bun lint && bun check && bun test",
+    "cli:install": "bun scripts/install-cli.ts",
+    "labels": "bun scripts/labels.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.8",
+    "@types/bun": "^1.4.4"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  }
+}

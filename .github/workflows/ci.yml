@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A newer push to the same branch makes the run before it pointless.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Format, lint, types and tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+      # Cloudflare's `cf` CLI, which type-checks the Worker, runs on Node and not on Bun.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: bun install --frozen-lockfile
+      # The web app's flow tests and `vibe serve` both want it built.
+      - run: bun web:build
+      - run: bun verify
+
+  image:
+    name: Container image builds and starts
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t vibe .
+      - name: Start it, and sign in with the token it prints
+        run: |
+          docker run -d --name vibe -p 127.0.0.1:7473:7473 vibe
+          for attempt in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:7473/v1/login >/dev/null && break
+            sleep 1
+          done
+          token=$(docker logs vibe 2>&1 | grep -o 'vibe_sk_[a-z0-9]*' | head -1)
+          curl -fsS -H "authorization: Bearer $token" http://127.0.0.1:7473/v1/whoami

@@ -1,0 +1,24 @@
+{
+  "name": "@vibe/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cf dev",
+    "build": "cf build",
+    "deploy": "cf deploy",
+    "db:migrate:local": "cf d1 migrations apply 00000000-0000-4000-8000-00000000b1be --local --persist-to .cloudflare/state --dir ../../packages/store/migrations",
+    "check": "cf workers types --quiet && bun check --no-script"
+  },
+  "dependencies": {
+    "@vibe/server": "workspace:*",
+    "@vibe/store": "workspace:*",
+    "elysia": "^1.4.32"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "2.0.0-rc.2",
+    "@vibe/sdk": "workspace:*",
+    "cf": "1.0.0-rc.1",
+    "vite": "^8.3.0"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@vibe/store",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./d1": "./src/d1.ts",
+    "./r2": "./src/r2.ts",
+    "./bun-sqlite": "./src/bun-sqlite.ts",
+    "./memory": "./src/memory.ts",
+    "./fs": "./src/fs.ts"
+  },
+  "scripts": {
+    "db:generate": "drizzle-kit generate && bun scripts/embed-migrations.ts",
+    "db:embed": "bun scripts/embed-migrations.ts"
+  },
+  "dependencies": {
+    "@vibe/kernel": "workspace:*",
+    "drizzle-orm": "^0.45.4"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.11"
+  }
+}

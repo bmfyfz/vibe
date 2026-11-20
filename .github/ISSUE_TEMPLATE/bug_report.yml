@@ -1,0 +1,67 @@
+name: Bug report
+description: Something doesn't work the way the README or the guides say it does
+labels: [bug, needs triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. If this is a way to read, write or sign in as someone you shouldn't, **don't file it here**: report it privately under the repository's Security tab.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: >-
+        What you ran, what Vibe answered, and what you expected instead. Paste the command and its
+        output as text. A failure prints its reason and a message, and `--json` gives the whole of it.
+      placeholder: |
+        $ vibe reply msg_01… "done" --after msg_01…
+        newer_message: …
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The shortest sequence that shows it, starting from a new Vibe (`bun start --dir /tmp/vibe-repro`) if you can.
+      placeholder: |
+        1. bun start --dir /tmp/vibe-repro
+        2. vibe post dev "…"
+        3. …
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: How the Vibe is run
+      options:
+        - vibe serve / bun start
+        - The container image
+        - A Cloudflare Worker
+        - bun dev (a Worker run locally)
+        - I don't know
+    validations:
+      required: true
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where you saw it
+      multiple: true
+      options:
+        - The vibe CLI
+        - "@vibe/sdk"
+        - The HTTP API directly
+        - The web app
+        - Sync with Slack, GitHub or Linear
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The release, or the commit (`git rev-parse --short HEAD`), and `bun --version`.
+      placeholder: "0.1.0, or a1b2c3d · Bun 1.4.4"
+    validations:
+      required: true
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything else
+      description: Logs, a screenshot, your browser. Take tokens and secrets out first.

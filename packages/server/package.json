@@ -1,0 +1,24 @@
+{
+  "name": "@vibe/server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./bun": "./src/bun.ts",
+    "./web": "./src/web.ts"
+  },
+  "dependencies": {
+    "@vibe/activity": "workspace:*",
+    "@vibe/automation": "workspace:*",
+    "@vibe/contracts": "workspace:*",
+    "@vibe/identity": "workspace:*",
+    "@vibe/kernel": "workspace:*",
+    "@vibe/messaging": "workspace:*",
+    "@vibe/store": "workspace:*",
+    "@vibe/sync": "workspace:*",
+    "@vibe/tasks": "workspace:*",
+    "elysia": "^1.4.32",
+    "zod": "^4.6.7"
+  }
+}

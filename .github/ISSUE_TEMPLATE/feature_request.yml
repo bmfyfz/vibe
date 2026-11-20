@@ -1,0 +1,30 @@
+name: Feature request
+description: Something Vibe doesn't do yet
+labels: [feature, needs triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What you are trying to do
+      description: The situation, not the solution. Who is doing it (a person, an agent, an operator), and what gets in the way today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you'd like
+      description: How it could look from outside, as a command, an SDK call or a screen. A sketch is enough.
+      placeholder: |
+        vibe sessions end --all-others
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you do instead for now
+      description: A workaround tells us how much this matters, and sometimes it is the answer.
+  - type: checkboxes
+    id: checked
+    attributes:
+      label: Before you send it
+      options:
+        - label: I looked for it in docs/limitations.md, which lists what Vibe doesn't do yet and why
+        - label: I'd be willing to open a pull request for it

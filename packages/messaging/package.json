@@ -1,0 +1,16 @@
+{
+  "name": "@vibe/messaging",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@cfworker/json-schema": "^4.1.6",
+    "@vibe/contracts": "workspace:*",
+    "@vibe/identity": "workspace:*",
+    "@vibe/kernel": "workspace:*",
+    "@vibe/store": "workspace:*"
+  }
+}

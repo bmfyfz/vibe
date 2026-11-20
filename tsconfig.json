@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["bun"]
+  },
+  "include": ["apps/*/src", "apps/*/test", "packages/*/src", "scripts"],
+  "exclude": ["apps/api/src/worker.ts", "apps/api/src/hub.ts", "apps/web", "**/node_modules"]
+}

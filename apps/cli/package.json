@@ -1,0 +1,16 @@
+{
+  "name": "@vibe/cli",
+  "version": "0.0.0",
+  "private": true,
+  "bin": {
+    "vibe": "./src/main.ts"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "bun run --filter @vibe/web build && bun build --compile ./src/main.ts --outfile dist/vibe && rm -rf dist/web && cp -R ../web/dist dist/web"
+  },
+  "dependencies": {
+    "@vibe/sdk": "workspace:*",
+    "@vibe/server": "workspace:*"
+  }
+}

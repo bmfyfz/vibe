@@ -1,0 +1,34 @@
+version: 2
+updates:
+  - package-ecosystem: bun
+    directory: /
+    schedule:
+      interval: weekly
+    labels: [dependencies]
+    commit-message:
+      prefix: "build(deps)"
+    groups:
+      # One pull request for what doesn't change behaviour, so the queue stays short.
+      minor-and-patch:
+        update-types: [minor, patch]
+    ignore:
+      # Release candidates, pinned exactly on purpose. Raise them by hand,
+      # with a run of the suite against a local Worker.
+      - dependency-name: cf
+      - dependency-name: "@cloudflare/vite-plugin"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    labels: [dependencies]
+    commit-message:
+      prefix: "ci(deps)"
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+    labels: [dependencies]
+    commit-message:
+      prefix: "build(deps)"

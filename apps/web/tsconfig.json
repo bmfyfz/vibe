@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2024", "dom", "dom.iterable"],
+    "jsx": "react-jsx",
+    "types": ["bun", "vite/client"]
+  },
+  "include": ["src", "test", "vite.config.ts", "../../packages/store/src/sql-text.d.ts"]
+}

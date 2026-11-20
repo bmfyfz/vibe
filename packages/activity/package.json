@@ -1,0 +1,15 @@
+{
+  "name": "@vibe/activity",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@vibe/contracts": "workspace:*",
+    "@vibe/kernel": "workspace:*",
+    "@vibe/messaging": "workspace:*",
+    "@vibe/store": "workspace:*"
+  }
+}

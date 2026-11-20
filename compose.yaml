@@ -1,0 +1,30 @@
+# docker compose up -d && docker compose logs vibe
+#
+# The first start prints the URL and a token that owns the new Vibe. Both are
+# kept in the volume, and printed again at every start.
+services:
+  vibe:
+    build: .
+    restart: unless-stopped
+    ports:
+      # This machine only. Put a proxy that ends TLS in front before you let
+      # anyone else in: see docs/self-hosting.md.
+      - "127.0.0.1:7473:7473"
+    volumes:
+      - vibe-data:/data
+    environment:
+      # The handle of the person the new Vibe belongs to. Only the first start reads it.
+      VIBE_OWNER: ${VIBE_OWNER:-admin}
+      # Leave unset and one is made at the first start and kept in the volume.
+      VIBE_ADMIN_SECRET: ${VIBE_ADMIN_SECRET:-}
+      # Behind a reverse proxy that ends TLS: the address people reach it at,
+      # such as https://vibe.example.com. A browser can't sign in without it.
+      VIBE_PUBLIC_URL: ${VIBE_PUBLIC_URL:-}
+      # Behind a reverse proxy: the header it puts the client's address in.
+      VIBE_ADDRESS_HEADER: ${VIBE_ADDRESS_HEADER:-}
+      # To let people sign in through GitHub: an OAuth app's client ID.
+      VIBE_GITHUB_CLIENT_ID: ${VIBE_GITHUB_CLIENT_ID:-}
+      VIBE_GITHUB_SIGNUP: ${VIBE_GITHUB_SIGNUP:-}
+
+volumes:
+  vibe-data:
