@@ -24,8 +24,8 @@
     "labels": "bun scripts/labels.ts"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.6.8",
-    "@types/bun": "^1.4.4"
+    "@biomejs/biome": "^2.6.9",
+    "@types/bun": "^1.4.5"
   },
   "engines": {
     "bun": ">=1.4.0"

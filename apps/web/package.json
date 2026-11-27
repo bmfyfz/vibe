@@ -20,7 +20,7 @@
   "devDependencies": {
     "@happy-dom/global-registrator": "^21.0.4",
     "@testing-library/react": "^16.3.3",
-    "@types/react": "^19.3.0",
+    "@types/react": "^19.3.1",
     "@types/react-dom": "^19.3.0",
     "@vibe/server": "workspace:*",
     "@vibe/store": "workspace:*",
